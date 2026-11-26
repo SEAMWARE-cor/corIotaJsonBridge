@@ -27,7 +27,7 @@ IOTAJSON_TEST_DIR="${IOTAJSON_TEST_DIR:-/tmp/iotajson-bridge-test}"
 brokerStart() {
   brokerStop
 
-  "$IOTAJSON_BROKER" --port "$IOTAJSON_PORT" --foreground --pretty-print 2 --httpEndpoint "http://localhost:$IOTAJSON_PORT" \
+  "$IOTAJSON_BROKER" --port "$IOTAJSON_PORT" --pretty-print 2 --httpEndpoint "http://localhost:$IOTAJSON_PORT" \
                  --database ramDB --bridges "$IOTAJSON_PLUGIN" --bridgeConfig "$IOTAJSON_TEST_DIR/bridges.json" "$@" \
                  > "$IOTAJSON_TEST_DIR/broker.log" 2>&1 &
   echo $! > "$IOTAJSON_TEST_DIR/broker.pid"
